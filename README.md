@@ -58,17 +58,17 @@ To make the simulation realistic, we will build a standard small office network.
 ### 🔢 IP Addressing Plan
 For a professional portfolio project, it is best practice to use a structured IP plan. We will use static IPs for the infrastructure (Server and Printers) and DHCP or static for the PCs.
 
-| Device Name          | IP Address          | Subnet Mask          | Default Gateway |         
+| Device Name          |          | IP Address           |             | Subnet Mask          |            | Default Gateway |         
 ---
-| Print-Server         | 192.168.1.10        | 255.255.255.0        | 192.168.1.1     |
+| Print-Server         |          | 192.168.1.10         |             | 255.255.255.0        |            | 192.168.1.1     |
 ---
-| Printer-Office-A     | 192.168.1.21        | 255.255.255.0        | 192.168.1.1     | 
+| Printer-Office-A     |          | 192.168.1.21         |             | 255.255.255.0        |            | 192.168.1.1     | 
 ---
-| Printer-Office-B     | 192.168.1.22        | 255.255.255.0        | 192.168.1.1     | 
+| Printer-Office-B     |          | 192.168.1.22         |             | 255.255.255.0        |            | 192.168.1.1     | 
 ---
-| PC-Admin             | 192.168.1.51        | 255.255.255.0        | 192.168.1.1     |
+| PC-Admin             |          | 192.168.1.51         |             | 255.255.255.0        |            | 192.168.1.1     |
 ---
-| PC-Sales             | 192.168.1.52        | 255.255.255.0        | 192.168.1.1     |
+| PC-Sales             |          | 192.168.1.52         |             | 255.255.255.0        |            | 192.168.1.1     |
 ---
 
 ### ⚙️ Step-by-Step Configuration
