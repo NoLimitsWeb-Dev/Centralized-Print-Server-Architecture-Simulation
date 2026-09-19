@@ -79,7 +79,18 @@ Step 1: Configure the Network Printers
 4. Repeat this process for Printer-Office-B using its respective IP (192.168.1.22)
 ---
 
-Step 2: Configure the Print Server
+Step 2: Configure the Client PCs
+
+1. Click on PC-Admin, go to Desktop -> IP Configuration, and assign 192.168.1.51.
+<img width="1132" height="963" alt="image" src="https://github.com/user-attachments/assets/9ba91d00-bdf1-45c3-8e59-1c6ea88541cf" />
+
+2. Go to Desktop -> Command Prompt and type ping 192.168.1.10 to ensure the PC can talk to the Print Server.
+<img width="1138" height="325" alt="image" src="https://github.com/user-attachments/assets/b9b4a770-1fe6-4841-a2d5-bc98afcfa722" />
+
+3. Repeat IP configuration for PC-Sales using 192.168.1.52.
+
+
+Step 3: Configure the Print Server
 1. Click on Print-Server and go to the Desktop tab -> IP Configuration.
 <img width="1141" height="640" alt="image" src="https://github.com/user-attachments/assets/b5cb800a-f72c-424a-ab7d-ab2fcd0c3af1" />
 
@@ -87,7 +98,11 @@ Step 2: Configure the Print Server
 3. Go to the Services tab and click on PRINT.
 <img width="1137" height="477" alt="image" src="https://github.com/user-attachments/assets/00b08d7b-1d54-46fa-bfac-b5a313b0061c" />
 
-Configuration Glitch: In standard versions of Cisco Packet Tracer, there is actually no dedicated "PRINT" service tab under the Server device's Services menu. Packet Tracer focuses primarily on core networking protocols (like HTTP, DHCP, DNS, and FTP) rather than local OS peripheral sharing like a Windows Print Server.
+---
+Configuration Glitch: 
+---
+
+In standard versions of Cisco Packet Tracer, there is actually no dedicated "PRINT" service tab under the Server device's Services menu. Packet Tracer focuses primarily on core networking protocols (like HTTP, DHCP, DNS, and FTP) rather than local OS peripheral sharing like a Windows Print Server.
 Therefore to simulate a print server for my portfolio without that tab, I can use one of two highly professional workarounds options:
 
 * Option 1: The HTTP/Web Portal Workaround
@@ -98,7 +113,69 @@ Therefore to simulate a print server for my portfolio without that tab, I can us
   But option 2 as its limitation - Cisco Packet Tracer's internal Text Editor does not have a "Print" button. Because Packet Tracer is purely a software and network traffic simulator, it doesn't replicate localized operating system tasks like sending documents to a spooler. Which makes option 1 preferred.
 <img width="1127" height="490" alt="image" src="https://github.com/user-attachments/assets/bb0af2a6-ee44-49aa-9e00-9e48a1d2aabb" />
 
-4. Turn the Print service ON.
-5. Set up the printer queues:
-   1. Printer Name: HR_LaserJet | Printer IP: 192.168.1.21 -> Click Add.
-   2. Printer Name: Sales_Color | Printer IP: 192.168.1.22 -> Click Add.
+```
+Therefore using the HTTP Web Portal workaround transforms this from a basic connectivity lab into an enterprise-level systems integration project.
+```
+
+### 🛠️ Step-by-Step Configuration
+
+Option 1: The HTTP/Web Portal Workaround
+1. Click on your Print-Server -> Services tab -> HTTP.
+2. Ensure HTTP and HTTPS are both set to On.
+3. Click edit next to the index.html file.
+<img width="1150" height="442" alt="image" src="https://github.com/user-attachments/assets/f38d631e-abe0-4f23-af16-e402ba2468bc" />
+
+4. Replace the HTML code with a clean, simple print management dashboard. Paste this code:
+<img width="1131" height="977" alt="image" src="https://github.com/user-attachments/assets/79d1de3d-2e7d-4eed-b3d7-4566cb7c9a4d" />
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enterprise Print Management Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f4f6f9; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #34495e; padding-bottom: 10px; text-align: center; }
+        .meta { font-size: 14px; color: #555; text-align: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .status-ready { color: #27ae60; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🖨️ Centralized Print Server Management Dashboard</h2>
+        <div class="meta">
+            <strong>Server Hostname:</strong> Print-Server | 
+            <strong>IP Address:</strong> 192.168.1.10 | 
+            <strong>System Status:</strong> <span class="status-ready">ONLINE</span>
+        </div>
+        <table>
+            <tr>
+                <th>Printer Name</th>
+                <th>Network IP</th>
+                <th>Status</th>
+                <th>Active Queues</th>
+            </tr>
+            <tr>
+                <td>HR_LaserJet_A</td>
+                <td>192.168.1.21</td>
+                <td><span class="status-ready">Ready</span></td>
+                <td>0 Jobs Pending</td>
+            </tr>
+            <tr>
+                <td>Sales_Color_B</td>
+                <td>192.168.1.22</td>
+                <td><span class="status-ready">Ready</span></td>
+                <td>0 Jobs Pending</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+```
+
+Step 1: Configure the Web Dashboard on the Print ServerClick on the Print-Server, go to the Services tab, and select HTTP.Ensure both HTTP and HTTPS are toggled On.Locate index.html in the file list and click edit.Delete the existing code completely, paste the clean HTML code below, and click Save (confirm overwrite):
