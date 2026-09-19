@@ -1,7 +1,8 @@
 # Enterprise-Centralized-Print-Server-Architecture-Simulation
 A simulated enterprise Local Area Network (LAN) featuring a centralized Print Server infrastructure and HTTP management dashboard built in Cisco Packet Tracer to demonstrate resource isolation, static IP budgeting, and Layer 2/3 traffic optimization.
-## 📌 Project Overview
-In modern enterprise networks, mapping client machines directly to individual hardware endpoint IPs creates severe administrative bottlenecks, security risks, and scaling issues. This project designs and simulates a centralized local area network (LAN) infrastructure model where peripheral resources are consolidated behind a dedicated system node. 
+## 🎯 Project Objective
+
+In enterprise networks, mapping client machines directly to individual network printer IPs causes massive administrative overhead and scaling issues. This project demonstrates a centralized network print server model where system administrators and end-users monitor physical print hardware status dynamically through an integrated HTTP management dashboard hosted on a local static server.
 
 To overcome platform simulation limitations, a custom **HTTP management dashboard** was built and hosted natively on the server node. This allows network administrators and end-users to dynamically audit network printer health, IP allocations, and queue states through an internal web interface.
 ---
@@ -120,6 +121,8 @@ Therefore using the HTTP Web Portal workaround transforms this from a basic conn
 ### 🛠️ Step-by-Step Configuration
 
 Option 1: The HTTP/Web Portal Workaround
+
+Step 1:
 1. Click on your Print-Server -> Services tab -> HTTP.
 2. Ensure HTTP and HTTPS are both set to On.
 3. Click edit next to the index.html file.
@@ -178,4 +181,25 @@ Option 1: The HTTP/Web Portal Workaround
 </html>
 ```
 
-Step 1: Configure the Web Dashboard on the Print ServerClick on the Print-Server, go to the Services tab, and select HTTP.Ensure both HTTP and HTTPS are toggled On.Locate index.html in the file list and click edit.Delete the existing code completely, paste the clean HTML code below, and click Save (confirm overwrite):
+5. How to test/demonstrate it: Go to PC-Admin -> Desktop -> Web Browser. Type 192.168.1.10 in the URL bar. This proves the end-users can reach and interact with the centralized print server infrastructure.
+<img width="1127" height="896" alt="image" src="https://github.com/user-attachments/assets/0b8476f1-9ea2-44e8-ab99-f8da875ea207" />
+
+### ✅ Further Verification: 
+
+Run a Live Connectivity Test (Ping Verification)
+
+1. To see the actual network handshake happen in real time:
+* Click on PC-Admin ➡️ Desktop tab ➡️ Command Prompt.
+* Type ping 192.168.1.10 and press Enter.
+* You will instantly see four successful replies: Reply from 192.168.1.10: bytes=32 time<1ms TTL=128.3.
+<img width="1141" height="450" alt="image" src="https://github.com/user-attachments/assets/c2488b7f-6fa7-4947-8fe7-023a58b40002" />
+
+---
+2. Check the Physical Link Lights
+Look closely at the lines (cables) connecting your devices to the 2960 Switch:
+* You should see green dots on both ends of every cable.
+* Green dots indicate that the physical layer is up, and STP (Spanning Tree Protocol) has finished converging, meaning the switch ports are actively forwarding traffic in real time.
+<img width="1341" height="743" alt="image" src="https://github.com/user-attachments/assets/2e14e35d-2cb0-4593-9ad9-e73f2d494a1e" />
+
+
+
