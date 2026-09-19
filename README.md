@@ -62,7 +62,13 @@ For a professional portfolio project, it is best practice to use a structured IP
 ---
 | Print-Server         | 192.168.1.10        | 255.255.255.0        | 192.168.1.1     |
 ---
-Printer-Office-A192.168.1.21255.255.255.0192.168.1.1Printer-Office-B192.168.1.22255.255.255.0192.168.1.1PC-Admin192.168.1.51255.255.255.0192.168.1.1PC-Sales192.168.1.52255.255.255.0192.168.1.1
+| Printer-Office-A     | 192.168.1.21        | 255.255.255.0        | 192.168.1.1     | 
+---
+| Printer-Office-B     | 192.168.1.22        | 255.255.255.0        | 192.168.1.1     | 
+---
+| PC-Admin             | 192.168.1.51        | 255.255.255.0        | 192.168.1.1     |
+---
+| PC-Sales             | 192.168.1.52        | 255.255.255.0        | 192.168.1.1     |
 ---
 
 ### ⚙️ Step-by-Step Configuration
