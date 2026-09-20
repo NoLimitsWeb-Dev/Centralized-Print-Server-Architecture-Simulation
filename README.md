@@ -58,17 +58,13 @@ To make the simulation realistic, we will build a standard small office network.
 ### 🔢 IP Addressing Plan
 For a professional portfolio project, it is best practice to use a structured IP plan. We will use static IPs for the infrastructure (Server and Printers) and DHCP or static for the PCs.
 
-| Device Name          |          | IP Address           |             | Subnet Mask          |            | Default Gateway |         
----
-| Print-Server         |          | 192.168.1.10         |             | 255.255.255.0        |            | 192.168.1.1     |
----
-| Printer-Office-A     |          | 192.168.1.21         |             | 255.255.255.0        |            | 192.168.1.1     | 
----
-| Printer-Office-B     |          | 192.168.1.22         |             | 255.255.255.0        |            | 192.168.1.1     | 
----
-| PC-Admin             |          | 192.168.1.51         |             | 255.255.255.0        |            | 192.168.1.1     |
----
-| PC-Sales             |          | 192.168.1.52         |             | 255.255.255.0        |            | 192.168.1.1     |
+| Device Name          | IP Address | Subnet Mask | Default Gateway | 
+| :--- | :--- | :--- | :--- |
+| Print-Server | 192.168.1.10 | 255.255.255.0 |  192.168.1.1 |
+| Printer-Office-A | 192.168.1.21 | 255.255.255.0  | 192.168.1.1 | 
+| Printer-Office-B | 192.168.1.22 | 255.255.255.0  | 192.168.1.1 | 
+| PC-Admin | 192.168.1.51 | 255.255.255.0 | 192.168.1.1 |
+| PC-Sales | 192.168.1.52 | 255.255.255.0 | 192.168.1.1 |
 ---
 
 ### ⚙️ Step-by-Step Configuration
@@ -207,5 +203,27 @@ Look closely at the lines (cables) connecting your devices to the 2960 Switch:
 * Green dots indicate that the physical layer is up, and STP (Spanning Tree Protocol) has finished converging, meaning the switch ports are actively forwarding traffic in real time.
 <img width="1341" height="743" alt="image" src="https://github.com/user-attachments/assets/2e14e35d-2cb0-4593-9ad9-e73f2d494a1e" />
 
+---
+
+## 🧠 Lessons Learnt & Technical Insights
+
+Building and validating this architecture yielded several critical engineering takeaways regarding network resource management and simulation constraints:
+
+*   **Simulation vs. Production Adaptability:** A major milestone was pivoting from native OS printer pooling to a simulated **HTTP/Web Daemon dashboard**. This exercise reinforced that network design often requires creative system-integration workarounds to simulate real-world web-managed appliances (like PaperCut or HP Web Jetadmin).
+*   **Preventing Broadcast Storms and IP Conflicts:** Manually budgeting static IPs for critical infrastructure nodes (`192.168.1.10–.22`) highlighted the importance of clean **IP Address Management (IPAM)**. Isolating these hardware resources ensures that scaling user endpoints via DHCP later will not disrupt shared business peripherals.
+*   **Layer 2/3 Traffic Interdependence:** Tracking ICMP and HTTP packet data streams across the switch emphasized how **Spanning Tree Protocol (STP)** and **MAC Address Tables** work together. A network link is only as reliable as its underlying hardware handshake.
+
+---
+
+## 🏁 Conclusion
+
+This simulation successfully demonstrates the deployment and structural validation of a centralized infrastructure printing model within an enterprise Local Area Network (LAN). By migrating from an unmanaged, decentralized peripheral design to a consolidated server-client architecture, the network achieves significant optimizations in administration, scalability, and security.
+
+### 🔑 Core Project Achievements:
+1. **Administrative Efficiency:** Centralizing resource states through a single host node (`192.168.1.10`) eliminates the overhead of manually provisioning discrete endpoint IPs on individual client workstations.
+2. **Subnet Security Boundaries:** Enforcing strict IP segregation simplifies the future implementation of granular Access Control Lists (ACLs) and stateful firewall policies to protect company infrastructure.
+3. **Application Layer Validation:** Utilizing Packet Tracer’s real-time environmental testing successfully verified end-to-end transport stability via successful TCP Port 80 (HTTP) request/response loops.
+
+This project reinforces core competencies in foundational network engineering, structural IP provisioning, and centralized intranet service architectures required for modern, scalable enterprise environments.
 
 
