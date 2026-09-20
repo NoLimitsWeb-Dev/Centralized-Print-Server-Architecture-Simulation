@@ -53,6 +53,7 @@ To make the simulation realistic, we will build a standard small office network.
 * 1 Switch: Use a standard 2960 Switch to connect all devices.
 * Connections: Use Copper Straight-Through cables to connect every device to the switch.
 <img width="1141" height="1012" alt="image" src="https://github.com/user-attachments/assets/ada18ae6-bf88-4476-b5c2-38f04f3c7f07" />
+
 ---
 
 ### 🔢 IP Addressing Plan
